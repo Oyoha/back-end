@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>HTML-form</title>
+    </head>
+    <body>
+    <h3>Информация о товаре</h3>
+    <form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Сохранить">
+        {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+        <a href="{% url 'export_product_csv' %}">Export product</a>
+</form>
+    </body>
+</html>
